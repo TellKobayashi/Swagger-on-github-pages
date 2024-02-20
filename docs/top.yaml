@@ -73,4 +73,4 @@ paths:
   /API/ls/variablecostlist_peraffstr:
     $ref: paths/lsapi/variablecostlistPerAffstr.yaml
   /API/ls/allcostlist_peritemdata:
-    $ref: paths/lsapi/allcostlistPerItemData.yaml
+    $ref: paths/lsapi/allcostlistPeritemdata.yaml
