@@ -1,0 +1,17 @@
+type: object
+properties:
+  remark_info:
+    type: "object"
+    properties:
+      line:
+        type: string
+        example: ""
+        description: "行表示文言。"
+      left:
+        type: string
+        example: ""
+        description: "左詰め文言。"
+      right:
+        type: string
+        example: ""
+        description: "右詰め文言。"

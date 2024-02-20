@@ -1,0 +1,27 @@
+type: object
+required:
+  - result_code
+  - detail_code
+xml: 
+  name: "epospay_smschk_response"
+properties:
+  result_code:
+    type: string
+    example: "0"
+    description: "0:成功、1:失敗"
+  detail_code:
+    type: string
+    example: "0000"
+    description: "詳細コード。「詳細コード」参照"
+  error_message:
+    type: string
+    example: ""
+    description: "エラーメッセージ（失敗時のみ返却）"
+  login_session_id:
+    type: string
+    example: "B8BA7CD9-2EB4-4ED4-B2E5-17B8155D80C2"
+    description: "ログインセッションID（成功時のみ返却）"
+  epospay_authentication_config:
+    type: string
+    example: "01"
+    description: "EposPay設定.EposPay認証設定（成功時のみ返却）"

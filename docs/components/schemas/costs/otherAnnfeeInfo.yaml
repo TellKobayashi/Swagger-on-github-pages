@@ -1,0 +1,22 @@
+type: object
+xml: 
+  name: "other_annfee_info"
+description: "その他年会費。利用履歴情報取得.その他年会費。"
+properties:
+  necess_fund:
+    type: string
+    example: ""
+    description: "利用金額。利用履歴情報取得.その他年会費情報.利用金額。"
+  rec_unfix_flg:
+    type: string
+    example: ""
+    description: "オーソリ未確定フラグ。利用履歴情報取得.その他年会費情報.オーソリ未確定フラグ。"
+  order_by:
+    type: string
+    example: ""
+    description: "表示順。"
+  remark_info_list:
+    description: "備考リスト。利用履歴情報取得.[その他年会費].備考リスト。"
+    type: array
+    items:
+      $ref: "remarkInfo.yaml"

@@ -1,0 +1,47 @@
+type: object
+xml: 
+  name: "cashing_revo_pmt_info"
+description: "キャッシングリボ情報。利用履歴情報取得.キャッシングリボ情報。"
+properties:
+  revo_crs_div:
+    type: string
+    example: "02"
+    description: "リボコース区分。"
+  revo_crs_name:
+    type: string
+    example: "２万円コース（元利定額方式）"
+    description: "リボコース名。"
+  pmt_amt:
+    type: string
+    example: "10000"
+    description: "お支払額。値がnullの場合、0を返却。"
+  pmt_prncpl:
+    type: string
+    example: "8500"
+    description: "お支払額内元金。値がnullの場合、0を返却。"
+  pmt_intr:
+    type: string
+    example: "1500"
+    description: "お支払額内手数料。値がnullの場合、0を返却。"
+  revo_balance_before:
+    type: string
+    example: "17955"
+    description: "お支払前リボ払い残。値がnullの場合、0を返却。"
+  revo_balance_after:
+    type: string
+    example: "15000"
+    description: "お支払後リボ払い残。値がnullの場合、0を返却。"
+  rec_unfix_flg:
+    type: string
+    example: "1"
+    description: "オーソリ未確定フラグ。オーソリ未確定の場合のみ返却（1：未確定）。"
+  remark_info_list:
+    description: "備考リスト。備考がある場合のみ返却。"
+    type: array
+    items:
+      $ref: "remarkInfo.yaml"
+  new_revo_info_list:
+    description: "新規リボ払い情報リスト。新規リボ払い情報がある場合のみ返却。"
+    type: array
+    items:
+      $ref: "newRevoInfo.yaml"

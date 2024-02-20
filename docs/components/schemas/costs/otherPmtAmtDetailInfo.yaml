@@ -1,0 +1,13 @@
+type: object
+xml: 
+  name: "other_pmt_amt_detail_info"
+description: "その他お支払額詳細情報。利用履歴情報取得.その他お支払額詳細情報。"
+properties:
+  pmt_other_claim_ars_fee:
+    type: string
+    example: "794"
+    description: "その他延滞手数料。延滞手数料がある場合のみ返却。"
+  pmt_other_total_amt:
+    type: string
+    example: "1000"
+    description: "その他ご利用分合計。値がnullの場合、0を返却。"

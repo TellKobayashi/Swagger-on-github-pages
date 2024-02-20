@@ -1,0 +1,22 @@
+type: object
+properties:
+  affstr_info:
+    type: "object"
+    properties:
+      affstr_name:
+        type: string
+        example: "ファミリーマートキチジョウジテン"
+        description: "利用場所。利用履歴情報取得.[ショッピングご利用情報リスト or その他ご利用情報リスト].カード利用情報リスト.利用場所。"
+      pmt_amt:
+        type: string
+        example: "2000"
+        description: "お支払額。利用詳細リスト.利用詳細.お支払額の合計。"
+      mcc_code:
+        type: string
+        example: "6300"
+        description: "MCCコード。"
+      detail_info_list:
+        description: "利用詳細リスト。日付の降順。"      
+        type: array
+        items:
+          $ref: "detailInfoForPerAffstr.yaml"

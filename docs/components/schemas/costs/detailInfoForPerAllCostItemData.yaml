@@ -1,0 +1,58 @@
+type: object
+properties:
+  detail_info:
+    type: "object"
+    properties:
+      use_date:
+        type: string
+        example: "20190924"
+        description: "利用日。利用履歴情報取得.[ショッピングご利用情報リスト or その他ご利用情報リスト].カード利用情報リスト.カード利用日（YYYYMMDD形式）。"
+      affstr_name:
+        type: string
+        example: "新宿マルイ本館"
+        description: "利用場所。利用履歴情報取得.[ショッピングご利用情報リスト or その他ご利用情報リスト].カード利用情報リスト.お支払額。利用場所"
+      pmt_amt:
+        type: string
+        example: "1800"
+        description: "お支払額。利用履歴情報取得.[ショッピングご利用情報リスト or その他ご利用情報リスト].カード利用情報リスト.お支払額。"
+      rec_unfix_flg:
+        type: string
+        example: "1"
+        description: "オーソリ未確定フラグ。利用履歴情報取得.[ショッピングご利用情報リスト or その他ご利用情報リスト].カード利用情報リスト.オーソリ未確定フラグ。オーソリ未確定の場合のみ返却（1：未確定）。"
+      necess_fund:
+        type: string
+        example: "2000"
+        description: "利用金額。利用履歴情報取得.[ショッピングご利用情報リスト or その他ご利用情報リスト].カード利用情報リスト.利用金額。"
+      pmt_intr:
+        type: string
+        example: "300"
+        description: "手数料。利用履歴情報取得.[ショッピングご利用情報リスト or その他ご利用情報リスト].カード利用情報リスト.お支払額内手数料。分割払いのみ返却のみ返却。"
+      month_pmt_intr:
+        type: string
+        example: ""
+        description: "手数料（月毎）。利用履歴情報取得の設定値。"
+      pmt_div_name:
+        type: string
+        example: "分割"
+        description: "支払区分名。利用履歴情報取得.[ショッピングご利用情報リスト or その他ご利用情報リスト].カード利用情報リスト.支払区分名。"
+      divide_total_count:
+        type: string
+        example: "10"
+        description: "分割払い総回数。利用履歴情報取得.[ショッピングご利用情報リスト or その他ご利用情報リスト].カード利用情報リスト.分割払い総回数。分割払いのみ返却のみ返却。"
+      divide_count:
+        type: string
+        example: "2"
+        description: "分割払い号数。利用履歴情報取得.[ショッピングご利用情報リスト or その他ご利用情報リスト].カード利用情報リスト.分割払い号数。分割払いのみ返却のみ返却。"
+      recurring_div:
+        type: string
+        example: "1"
+        description: "リカーリング区分。"
+      mcc_code:
+        type: string
+        example: "6300"
+        description: "MCCコード。"
+      remark_info_list:
+        description: "備考リスト。利用履歴情報取得.[ショッピングご利用情報リスト or その他ご利用情報リスト].備考リスト。"
+        type: array
+        items:
+          $ref: "remarkInfo.yaml"

@@ -1,0 +1,43 @@
+post:
+  description: |
+    対象ユーザへのリニューアル機能の表示制御に使用する  
+    * リニューアル機能表示制御テーブルから取得した機能IDリストを返却する
+  operationId: getRenewalFeatureTarget
+  summary: リニューアル機能表示対象取得
+  tags: [ LSAPI ]
+  produces:
+    - application/xml; charset=utf-8
+
+  requestBody:
+    content:
+      application/xml:
+        schema:
+          $ref: "#/get_renewal_feature_target_request"
+
+  responses:
+    "200":
+      description: |
+        正常レスポンス
+      content:
+        application/xml:
+          schema:
+            $ref: "../../components/schemas/getRenewalFeatureTarget.yaml"
+get_renewal_feature_target_request:
+  type: "object"
+  required:
+    - uuid
+    - login_session_id
+    - scrambled_cust_num
+  properties:
+    uuid:
+      type: string
+      example: "LIFEAPP_5C7F5B4A-366F-454C-B425-D94A70ECDF3C"
+      description: "UUID"
+    login_session_id:
+      type: string
+      example: "1d1ec109-8aca-4b7d-9ac9-dc5ebe3bf6b4061013201934347"
+      description: "ログインセッションID"
+    scrambled_cust_num:
+      type: string
+      example: "640b6111a417"
+      description: "スクランブル顧客番号"

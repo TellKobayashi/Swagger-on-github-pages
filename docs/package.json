@@ -1,0 +1,14 @@
+{
+  "name": "api-if",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "redoc-cli bundle -o \"API-List.html\" ./top.yaml"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "redoc-cli": "^0.13.21"
+  }
+}

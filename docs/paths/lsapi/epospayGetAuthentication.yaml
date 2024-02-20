@@ -1,0 +1,40 @@
+post:
+  summary: EPOS Pay本人認証方法取得
+  description: |
+    * API初期処理を実行する。
+    * EposPay設定テーブルにアクセスする。
+    * 取得した情報をレスポンスとして返却する。
+  operationId: epospay_get_authentication
+  tags: [ LSAPI ]
+  requestBody:
+    content:
+      application/xml:
+        schema:
+          $ref: "#/epospay_get_authentication_request"
+  responses:
+    "200":
+      description: |
+        正常レスポンス
+      content:
+        application/xml:
+          schema:
+            $ref: "../../components/schemas/epospayGetAuthentication.yaml"
+epospay_get_authentication_request:
+  type: object
+  required:
+      - scrambled_cust_num
+      - uuid
+      - login_session_id
+  properties:
+    scrambled_cust_num:
+      type: string
+      example: "640b6111a417"
+      description: "スクランブル顧客番号"
+    uuid:
+      type: string
+      example: "LIFEAPP_5C7F5B4A-366F-454C-B425-D94A70ECDF3C"
+      description: "UUID"
+    login_session_id:
+      type: string
+      example: "B8BA7CD9-2EB4-4ED4-B2E5-17B8155D80C2"
+      description: "ログインセッションID"

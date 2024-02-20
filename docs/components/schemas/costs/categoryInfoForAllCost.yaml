@@ -1,0 +1,37 @@
+type: object
+properties:
+  category_info:
+    type: "object"
+    properties:
+      recurring_div:
+        type: string
+        example: "1"
+        description: "リカーリング区分。カテゴリマスタ.リカーリングID。"
+      category_name:
+        type: string
+        example: "電気"
+        description: "カテゴリ名。カテゴリマスタ.カテゴリ名。"
+      icon_img_url:
+        type: string
+        example: "http://hogehoge"
+        description: "アイコンURL。カテゴリマスタ.アイコンURL。"
+      order_number:
+        type: string
+        example: "1"
+        description: "表示順。カテゴリマスタ.表示順。"
+      select_icon_img_url:
+        type: string
+        example: "http://hogehoge"
+        description: "選択時アイコンURL。カテゴリマスタ.選択時アイコンURL。"
+      button_name_0:
+        type: string
+        example: ""
+        description: "ボタン名称_０件。カテゴリマスタ.ボタン名称_０件。"
+      button_name_1:
+        type: string
+        example: ""
+        description: "ボタン名称_１件以上。カテゴリマスタ.ボタン名称_１件以上。"
+      button_name_2:
+        type: string
+        example: ""
+        description: "ボタン名称_請求書支払。カテゴリマスタ.ボタン名称_請求書支払。"

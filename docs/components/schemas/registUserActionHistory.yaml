@@ -1,0 +1,27 @@
+type: "object"
+required:
+  - result_code
+  - detail_code
+xml: 
+  name: "regist_user_action_history_response"
+properties:
+  result_code:
+    type: string
+    example: "0"
+    description: "結果コード。0：成功、1：失敗"
+  detail_code:
+    type: string
+    example: "0000"
+    description: "詳細コード。「詳細コード」参照"
+  error_message:
+    type: string
+    example: ""
+    description: "エラーメッセージ。（失敗時のみ返却）"
+  login_session_id:
+    type: string
+    example: "1d1ec109-8aca-4b7d-9ac9-dc5ebe3bf6b4061013201934347"
+    description: "ログインセッションID。（成功時のみ返却）"
+  user_action_history_id:
+    type: string
+    example: "12345"
+    description: "ユーザー行動履歴ID。（成功時のみ返却）"

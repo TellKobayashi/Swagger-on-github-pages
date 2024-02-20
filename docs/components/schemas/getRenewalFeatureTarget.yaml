@@ -1,0 +1,33 @@
+type: "object"
+required:
+  - result_code
+  - detail_code
+  - target_list
+xml: 
+  name: "get_renewal_feature_target_response"
+properties:
+  result_code:
+    type: string
+    example: "0"
+    description: "結果コード。0：成功、1：失敗"
+  detail_code:
+    type: string
+    example: "0000"
+    description: "詳細コード。「詳細コード」参照"
+  error_message:
+    type: string
+    example: ""
+    description: "エラーメッセージ。（失敗時のみ返却）"
+  login_session_id:
+    type: string
+    example: "1d1ec109-8aca-4b7d-9ac9-dc5ebe3bf6b4061013201934347"
+    description: "ログインセッションID。（成功時のみ返却）"
+  target_list:
+    type: array
+    items:
+      type: object
+      properties:
+        target:
+          type: string
+          example: "EposPay"
+          description: "リニューアル機能表示対象の機能ID"

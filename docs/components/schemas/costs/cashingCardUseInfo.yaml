@@ -1,0 +1,54 @@
+type: object
+properties:
+  cashing_card_use_info:
+    type: "object"
+    properties:
+      card_use_date:
+        type: string
+        example: "20190801"
+        description: "カード利用日。YYYYMMDD形式。"
+      card_use_div:
+        type: string
+        example: "1"
+        description: "カード利用区分。1：ショッピング、2：キャッシング、3：その他。"
+      affstr_name:
+        type: string
+        example: "新宿マルイ本館"
+        description: "利用場所。"
+      necess_fund:
+        type: string
+        example: "30000"
+        description: "利用金額。値が0の場合nullを返却。"
+      pmt_div:
+        type: string
+        example: "4"
+        description: "支払区分。収納代行債権以外のみ返却。"
+      pmt_div_name:
+        type: string
+        example: "分割"
+        description: "支払区分名。収納代行債権以外のみ返却。"
+      rec_unfix_flg:
+        type: string
+        example: "1"
+        description: "オーソリ未確定フラグ。オーソリ未確定の場合のみ返却（1：未確定）。"
+      pmt_amt:
+        type: string
+        example: "10000"
+        description: "お支払額。過去の支払履歴の利用明細の場合のみ返却。値が0の場合nullを返却。"
+      pmt_intr:
+        type: string
+        example: "1500"
+        description: "お支払額内手数料。分割払いのみ返却。"
+      divide_total_count:
+        type: string
+        example: "10"
+        description: "分割払い総回数。分割払いのみ返却。"
+      divide_count:
+        type: string
+        example: "7"
+        description: "分割払い号数。分割払いのみ返却。"
+      remark_info_list:
+        description: "備考リスト。備考がある場合のみ返却。"
+        type: array
+        items:
+          $ref: "remarkInfo.yaml"

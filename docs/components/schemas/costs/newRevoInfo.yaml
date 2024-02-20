@@ -1,0 +1,26 @@
+type: object
+properties:
+  new_revo_info:
+    type: "object"
+    properties:
+      card_use_date:
+        type: string
+        example: "20190801"
+        description: "カード利用日。YYYYMMDD形式。"
+      affstr_name:
+        type: string
+        example: "新宿マルイ本館"
+        description: "利用場所。"
+      ecess_fund:
+        type: string
+        example: "29800"
+        description: "利用金額。値が0の場合、nullを返却。"
+      rec_unfix_flg:
+        type: string
+        example: "1"
+        description: "オーソリ未確定フラグ。オーソリ未確定の場合のみ返却（1：未確定）。"
+      remark_info_list:
+        description: "備考リスト。備考がある場合のみ返却。"
+        type: array
+        items:
+          $ref: "remarkInfo.yaml"

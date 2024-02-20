@@ -1,0 +1,104 @@
+type: object
+xml: 
+  name: "allcostlist_peritemdata_response"
+required:
+  - result_code
+  - detail_code
+  - login_session_id
+properties: 
+  result_code:
+    type: string
+    example: "0"
+    description: "結果コード。0：成功、1：失敗"
+  detail_code:
+    type: string
+    example: "0000"
+    description: "詳細コード。「詳細コード」参照"
+  error_message:
+    type: string
+    example: ""
+    description: "エラーメッセージ。（失敗時のみ返却）"
+  login_session_id:
+    type: string
+    example: "B8BA7CD9-2EB4-4ED4-B2E5-17B8155D80C2"
+    description: "ログインセッションID。利用履歴情報取得.ログインセッションID。"
+  pmt_date:
+    type: string
+    example: "20190827"
+    description: "お支払日。利用履歴情報取得.お支払日。（YYYYMMDD形式）（成功時のみ返却）"
+  pmt_total_amt:
+    type: string
+    example: "100000"
+    description: "お支払額合計。利用履歴情報取得.お支払額合計。（成功時のみ返却）"
+  pmt_fix_flg:
+    type: string
+    example: "1"
+    description: "支払確定フラグ。利用履歴情報取得.支払確定フラグ。（成功時のみ返却） 1：確定、0：未確定"
+  accnt_trans_claim_amt:
+    type: string
+    example: "32000"
+    description: "口振請求金額。利用履歴情報取得.口座請求金額。（成功時のみ返却）"
+  debit_scdl_date:
+    type: string
+    example: "20190927"
+    description: "引落し予定日。利用履歴情報取得.引落し予定日。（成功時のみ返却）（YYYYMMDD形式）"
+  pmt_way:
+    type: string
+    example: "口座引き落とし"
+    description: "お支払方法。利用履歴情報取得.お支払方法。（成功時かつ、支払済の場合のみ返却）"
+  itsu_revo_flg:
+    type: string
+    example: "1"
+    description: "いつリボ登録済フラグ。利用履歴情報取得.いつリボ登録済フラグ。（成功時のみ返却） 1：登録済、0：未登録"
+  roomid_use_flg:
+    type: string
+    example: "1"
+    description: "ROOM ID利用中フラグ。利用履歴情報取得.ROOM ID利用中フラグ。（成功時のみ返却）1：利用中、0：利用なし"
+  revo_change_flg:
+    type: string
+    example: "1"
+    description: "リボ変更可能フラグ。利用履歴情報取得.リボ変更可能フラグ。（成功時のみ返却）（注）1：可、0：不可"
+  divide_change_flg:
+    type: string
+    example: "1"
+    description: "分割変更可能フラグ。利用履歴情報取得.分割変更可能フラグ。（成功時のみ返却）（注）1：可、0：不可"
+  simulation_flg:
+    type: string
+    example: "1"
+    description: "シミュレーション可能フラグ。利用履歴情報取得.シミュレーション変更可能フラグ。（成功時のみ返却）（注）1：可、0：不可"
+  revo_change_end_date:
+    type: string
+    example: "20190924"
+    description: "リボ・分割変更期日。利用履歴情報取得.リボ・分割変更期日。（成功かつ、支払確定時のみ返却）（YYYYMMDD形式）"
+  revo_change_end_time:
+    type: string
+    example: "1030"
+    description: "リボ・分割変更締切時分。利用履歴情報取得.リボ・分割変更締切時分。（成功かつ、支払確定時のみ返却）（HHMM形式）"
+  detail_info_list:
+    description: "利用詳細リスト。ソート区分で指定した順。（成功時のみ返却）"
+    type: array
+    items:
+      $ref: "../../components/schemas/costs/detailInfoForPerAllCostItemData.yaml"
+  shopping_pmt_amt_detail_info:
+    $ref: "../../components/schemas/costs/shoppingPmtAmtDetailInfo.yaml"
+  cashing_pmt_amt_detail_info:
+    $ref: "../../components/schemas/costs/cashingPmtAmtDetailInfo.yaml"
+  other_pmt_amt_detail_info:
+    $ref: "../../components/schemas/costs/otherPmtAmtDetailInfo.yaml"
+  cashing_card_use_info_list:
+    description: "キャッシングご利用リスト 。利用履歴情報取得.キャッシングご利用リスト。"
+    type: array
+    items:
+      $ref: "../../components/schemas/costs/cashingCardUseInfo.yaml"
+  shopping_revo_pmt_info:
+    $ref: "../../components/schemas/costs/shoppingRevoPmtInfo.yaml"
+  cashing_revo_pmt_info:
+    $ref: "../../components/schemas/costs/cashingRevoPmtInfo.yaml"
+  other_annfee_info:
+    $ref: "../../components/schemas/costs/otherAnnfeeInfo.yaml"
+  category_info_list:
+    description: "カテゴリリスト。カテゴリ移動時のダイアログの表示に使用。"
+    type: array
+    items:
+      $ref: "../../components/schemas/costs/categoryInfoForAllCost.yaml"
+

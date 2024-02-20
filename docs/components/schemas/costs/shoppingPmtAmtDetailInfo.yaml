@@ -1,0 +1,25 @@
+type: object
+xml: 
+  name: "shopping_pmt_amt_detail_info"
+description: "ショッピングお支払額詳細情報。利用履歴情報取得.ショッピングお支払額詳細情報。"
+properties:
+  pmt_shopping_one_amt:
+    type: string
+    example: "0"
+    description: "ショッピング１回払い。値がnullの場合、0を返却。"
+  pmt_shopping_divide_bns_amt:
+    type: string
+    example: "5000"
+    description: "ショッピング分割ボーナス払い。値がnullの場合、0を返却。"
+  pmt_shopping_revo_amt:
+    type: string
+    example: "30000"
+    description: "ショッピングリボ払い。値がnullの場合、0を返却。"
+  pmt_shopping_claim_ars_fee:
+    type: string
+    example: "1645"
+    description: "ショッピング延滞手数料。延滞手数料がある場合のみ返却"
+  pmt_shopping_total_amt:
+    type: string
+    example: "36645"
+    description: "ショッピングご利用分合計。値がnullの場合、0を返却。"

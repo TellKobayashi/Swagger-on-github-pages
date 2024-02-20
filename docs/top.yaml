@@ -1,0 +1,76 @@
+openapi: 3.0.0
+info:
+  title: LifeStyleAPI
+  version: 1.0.0
+  description: |
+    ## 【共通の仕様】
+
+    ### ■API利用時の認証・認可
+
+    * 全てのLifeStyleAPIでは、本番環境も含めてベーシック認証を付加する。これは、DDOS攻撃対策の１つとして実施する。
+    * Basic認証情報（ID/PW）は、「Nativeアプリ内の設定値」を利用する。
+    * Basic認証は、API Gateway Lambdaオーソライザー　で実装する。
+
+    ### ■リクエスト
+
+    #### 《ヘッダ》
+    
+      | フィールド名 | 説明 |
+      | ---- | ---- |
+      | Content-Type | コンテンツタイプを設定 |
+      | User-Agent | 以下の定義で設定する。		<br>	iOS	<br>		アプリ名/アプリバージョン(ビルド番号)/OS名称/OSバージョン名<br>	Android	<br>		アプリ名/アプリバージョン(ビルド番号)/OS名称/OSバージョン名/固定文字列"Mobile"<br>		<br>	※アプリ名には、β版では、MaruiMaruiを設定しているが、統合版では、EposLifestyleAppを設定する。	<br>	※LSAPIでは、アプリバージョンに応じて利用するAPIバージョンを決定する。	<br>		<br>	例1：iOS13.0.1のアプリバージョン2.0.6(2)の場合	<br>		EposLifestyleApp/2.0.6(2)/iOS/13.0.1<br>		<br>	例2：Android8.0.1のアプリバージョン2.0.4の場合	<br>		EposLifestyleApp/2.0.4/Android/8.0.1/Mobile |
+      | X-lifestyle0101-UA | アプリ名/アプリバージョン(ビルド番号)/OS名称/OSバージョン名	<br>	<br>※アプリ名には、β版では、MaruiMaruiを設定しているが、統合版では、EposLifestyleAppを設定する。	<br>※LSAPIでは、アプリバージョンに応じて利用するAPIバージョンを決定する。	<br>	<br>例1：iOS13.0.1のアプリバージョン2.0.6(2)の場合	<br>	EposLifestyleApp/2.0.6(2)/iOS/13.0.1<br>	<br>例2：Android8.0.1のアプリバージョン2.0.4の場合	<br>	EposLifestyleApp/2.0.4/Android/8.0.1/ |
+    
+    ### ■レスポンス
+
+    #### 《ヘッダ》
+
+      * コンテンツタイプ：application/xml
+      * キャラセット：charset=utf-8
+      * HTTPステータスコード：
+
+        |  | ステータスコード |
+        | ---- | ---- |
+        | 成功時 | 200 |
+        | アプリケーションでハンドリングされたエラー | 200 |
+        | BASIC認証エラー | 401　または　403 |
+        | それ以外のエラー | 内容に応じたステータスコードを返却|
+    
+    ### ■バリデーション
+    
+    全てのAPI処理において、最初に以下のバリデーションチェックを行うこと。 	
+    * 1：必須項目チェック  
+    * 2：データ型チェック  
+
+    ### ■API初期処理
+
+    全てのLifeStyleAPIでは、API共通初期処理を最初に実行する。  
+    主に以下の内容を行う。
+    * ・API利用認証・認可
+    * ・利用するAPIバージョンの特定
+    * ・セッションIDの有効性確認と更新
+    * ・共通的に用いるリクエストパラメータ（UUID・ログインセッションID・スクランブル顧客番号　など）のバリデーションチェック
+    * ・メンテナンスモードの判定
+
+    なお、本処理では、全てのAPIで利用されるため、高い性能を求められる。  
+    そこで、本処理では、処理速度の向上を目的として、RDSへのアクセスは行わず、  
+    データソースとして、Redisを用いる。  
+
+paths:
+
+  /API/ls/regist_user_action_history:
+    $ref: paths/lsapi/registUserActionHistory.yaml
+  /API/ls/epospay_smschk:
+    $ref: paths/lsapi/epospaySmschk.yaml    
+  /API/ls/epospay_get_authentication:
+    $ref: paths/lsapi/epospayGetAuthentication.yaml
+  /API/ls/epospay_set_authentication:
+    $ref: paths/lsapi/epospaySetAuthentication.yaml
+  /API/ls/epospay_finish:
+    $ref: paths/lsapi/epospayFinish.yaml
+  /API/ls/get_renewal_feature_target:
+    $ref: paths/lsapi/getRenewalFeatureTarget.yaml
+  /API/ls/variablecostlist_peraffstr:
+    $ref: paths/lsapi/variablecostlistPerAffstr.yaml
+  /API/ls/allcostlist_peritemdata:
+    $ref: paths/lsapi/allcostlistPerItemData.yaml

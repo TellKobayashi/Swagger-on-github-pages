@@ -1,0 +1,46 @@
+post:
+  summary: EPOS Pay設定完了API（Ver4.7.4以降で未使用）
+  description: |
+    * API初期処理を実行する。
+    * EPOS Pay本人認証方法設定APIを呼び出す。
+    * 基幹システムのエポスPay認証完了APIを呼び出す。
+    * 設定した情報も含めてレスポンスとして返却する。
+  operationId: epospay_finish
+  tags: [ LSAPI ]
+  requestBody:
+    content:
+      application/xml:
+        schema:
+          $ref: "#/epospay_finish_request"
+  responses:
+    "200":
+      description: |
+        正常レスポンス
+      content:
+        application/xml:
+          schema:
+            $ref: "../../components/schemas/epospayFinish.yaml"
+epospay_finish_request:
+  type: object
+  required:
+      - uuid
+      - login_session_id
+      - scrambled_cust_num
+      - epospay_authentication_config
+  properties:
+    uuid:
+      type: string
+      example: "LIFEAPP_5C7F5B4A-366F-454C-B425-D94A70ECDF3C"
+      description: "UUID"
+    login_session_id:
+      type: string
+      example: "B8BA7CD9-2EB4-4ED4-B2E5-17B8155D80C2"
+      description: "ログインセッションID"
+    scrambled_cust_num:
+      type: string
+      example: "640b6111a417"
+      description: "スクランブル顧客番号"
+    epospay_authentication_config:
+      type: string
+      example: "01"
+      description: "Epospay認証設定。01:端末のロック解除を使う 02:エポスカードの暗証番号を使う"

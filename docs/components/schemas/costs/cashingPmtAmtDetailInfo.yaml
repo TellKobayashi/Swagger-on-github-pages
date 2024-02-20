@@ -1,0 +1,21 @@
+type: object
+xml: 
+  name: "cashing_pmt_amt_detail_info"
+description: "キャッシングお支払額詳細情報。利用履歴情報取得.キャッシングお支払額詳細情報。"
+properties:
+  pmt_cashing_one_amt:
+    type: string
+    example: "2000"
+    description: "キャッシング１回払い。値がnullの場合、0を返却。"
+  pmt_cashing_revo_amt:
+    type: string
+    example: "2000"
+    description: "キャッシングリボ払い。値がnullの場合、0を返却。"
+  pmt_cashing_claim_ars_fee:
+    type: string
+    example: "1212"
+    description: "キャッシング延滞手数料。延滞手数料がある場合のみ返却。"
+  pmt_cashing_total_amt:
+    type: string
+    example: "5212"
+    description: "キャッシングご利用分合計。値がnullの場合、0を返却。"
